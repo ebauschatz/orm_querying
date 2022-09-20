@@ -1,2 +1,1 @@
-# orm_querying
-Interacting with a database via ORM
+# DjangoQueryingLab_PY_Starter
