@@ -397,7 +397,10 @@ SELECT `school_db_student`.`id`,
 # Find all of the instructors that only belong to a single course
 # Print out the instructors full name and number of courses to the console
 def bonus_problem(request):
+    instructors_with_courses = Instructor.objects.annotate(courses_count = Count('course__id')).filter(courses_count = 1)
 
+    for instructor in instructors_with_courses:
+      print(f'Instructor Name: {instructor.first_name} {instructor.last_name} - {instructor.courses_count} course(s)')
     return complete(request)
 
 
